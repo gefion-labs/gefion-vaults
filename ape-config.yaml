@@ -13,17 +13,17 @@ default_ecosystem: ethereum
 dependencies:
   - name: openzeppelin
     github: OpenZeppelin/openzeppelin-contracts
-    ref: 4.9.5
+    ref: v4.9.5
   - name: tokenized-strategy
     github: gefion-labs/tokenized-strategy
-    ref: v3.0.2
+    ref: v1.0.0
     contracts_folder: src
 
 solidity:
   version: 0.8.18
   import_remapping:
     - "@openzeppelin/contracts=openzeppelin/v4.9.5"
-    - "@tokenized-strategy=tokenized-strategy/v3.0.2"
+    - "@tokenized-strategy=tokenized-strategy/v1.0.0"
 
 ethereum:
   local:
