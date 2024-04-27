@@ -1,0 +1,47 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: VaultFactory
+    network: bsc
+    source:
+      address: "0xDA5701B852a65128e96c1085366089643eEC7EAD"
+      abi: VaultFactory
+      startBlock: 38202338
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - NewVault
+        - UpdateProtocolFeeBps
+        - UpdateProtocolFeeRecipient
+        - UpdateCustomProtocolFee
+        - RemovedCustomProtocolFee
+        - FactoryShutdown
+        - UpdateGovernance
+        - NewPendingGovernance
+      abis:
+        - name: VaultFactory
+          file: ./abis/VaultFactory.json
+      eventHandlers:
+        - event: NewVault(indexed address,indexed address)
+          handler: handleNewVault
+        - event: UpdateProtocolFeeBps(uint16,uint16)
+          handler: handleUpdateProtocolFeeBps
+        - event: UpdateProtocolFeeRecipient(indexed address,indexed address)
+          handler: handleUpdateProtocolFeeRecipient
+        - event: UpdateCustomProtocolFee(indexed address,uint16)
+          handler: handleUpdateCustomProtocolFee
+        - event: RemovedCustomProtocolFee(indexed address)
+          handler: handleRemovedCustomProtocolFee
+        - event: FactoryShutdown()
+          handler: handleFactoryShutdown
+        - event: UpdateGovernance(indexed address)
+          handler: handleUpdateGovernance
+        - event: NewPendingGovernance(indexed address)
+          handler: handleNewPendingGovernance
+      file: ./src/vault-factory.ts

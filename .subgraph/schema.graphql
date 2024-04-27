@@ -1,0 +1,67 @@
+type NewVault @entity(immutable: true) {
+  id: Bytes!
+  vaultAddress: Bytes! # address
+  asset: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UpdateProtocolFeeBps @entity(immutable: true) {
+  id: Bytes!
+  oldFeeBps: Int! # uint16
+  newFeeBps: Int! # uint16
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UpdateProtocolFeeRecipient @entity(immutable: true) {
+  id: Bytes!
+  oldFeeRecipient: Bytes! # address
+  newFeeRecipient: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UpdateCustomProtocolFee @entity(immutable: true) {
+  id: Bytes!
+  vault: Bytes! # address
+  newCustomProtocolFee: Int! # uint16
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RemovedCustomProtocolFee @entity(immutable: true) {
+  id: Bytes!
+  vault: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type FactoryShutdown @entity(immutable: true) {
+  id: Bytes!
+
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UpdateGovernance @entity(immutable: true) {
+  id: Bytes!
+  governance: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NewPendingGovernance @entity(immutable: true) {
+  id: Bytes!
+  pendingGovernance: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
