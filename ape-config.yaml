@@ -28,3 +28,6 @@ solidity:
 ethereum:
   local:
     default_provider: hardhat
+  sepolia:
+    transaction_acceptance_timeout: 600
+    

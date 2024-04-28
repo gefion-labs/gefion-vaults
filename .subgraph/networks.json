@@ -4,5 +4,11 @@
       "address": "0xDA5701B852a65128e96c1085366089643eEC7EAD",
       "startBlock": 38202338
     }
+  },
+  "sepolia": {
+    "VaultFactory": {
+      "address": "0x1e90d5c922da4eB1e092b814a45E481D61F46574",
+      "startBlock": 5792340
+    }
   }
 }
